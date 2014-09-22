@@ -1,24 +1,31 @@
-# import unittest2
+import unittest2
 from Game import Game
 
-# class GameTest(unittest2.TestCase):
-#   def setUp(self):
-#     self.game = Game()
+class GameTest(unittest2.TestCase):
+  def setUp(self):
+    self.game = Game()
 
-#   def testGutterGame(self):
-#     self.game.roll(1)
-#     self.assertEqual(self.game.score, 1)
+  def testGutterGame(self):
+    self.rollForMe(0)
+    self.assertEqual(self.game.score(), 0)
 
-# if __name__ == '__main__':
-#   unittest2.main()
+  def testAllOnes(self):
+    self.rollForMe(1)
+    self.assertEqual(self.game.score(), 20)
 
-game = Game()
+  def testPerfectGame(self):
+    self.rollForMe(10)
+    self.assertEqual(self.game.score(), 300)
 
-for element in range(21):
-  game.roll(1)
+  def testSpare(self):
+    self.rollForMe(0, 18)
+    self.rollForMe(5, 2)
+    self.rollForMe(3, 1)
+    self.assertEqual(self.game.score(), 13)
 
-# print dir(game.rolls)
-print game.rolls.count
+  def rollForMe(self, pins, times=20):
+    for element in range(times):
+      self.game.roll(pins)
 
-# game.score()
-# print game.score_number
+if __name__ == '__main__':
+  unittest2.main()
