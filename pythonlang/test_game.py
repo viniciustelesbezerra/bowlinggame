@@ -14,7 +14,7 @@ class GameTest(unittest2.TestCase):
     self.assertEqual(self.game.score(), 20)
 
   def testPerfectGame(self):
-    self.rollForMe(10)
+    self.rollForMe(10, 12)
     self.assertEqual(self.game.score(), 300)
 
   def testSpare(self):
