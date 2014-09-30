@@ -15,14 +15,14 @@ describe Game do
   end
 
   it "the perfect game" do
-    20.times { game.roll 10 }
+    12.times { game.roll 10 }
     expect(game.score).to eq 300
   end
 
-  it "make a spare" do
-    18.times { game.roll 0 }
+  it "one bonus spare" do
     2.times { game.roll 5 }
-    game.roll 3
-    expect(game.score).to eq 13
+    game.roll 2
+    17.times { game.roll 0 }
+    expect(game.score).to eq 14
   end
 end

@@ -14,7 +14,7 @@ class Game
     10.times do
       if (isStrike(frameIndex))
         score += 10 + strikeBonus(frameIndex)
-        frameIndex+=1
+        frameIndex += 1
       elsif (isSpare(frameIndex))
         score += 10 + spareBonus(frameIndex)
         frameIndex += 2
