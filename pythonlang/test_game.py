@@ -18,10 +18,10 @@ class GameTest(unittest2.TestCase):
     self.assertEqual(self.game.score(), 300)
 
   def testSpare(self):
-    self.rollForMe(0, 18)
     self.rollForMe(5, 2)
-    self.rollForMe(3, 1)
-    self.assertEqual(self.game.score(), 13)
+    self.rollForMe(2, 1)
+    self.rollForMe(0, 17)
+    self.assertEqual(self.game.score(), 14)
 
   def rollForMe(self, pins, times=20):
     for element in range(times):
