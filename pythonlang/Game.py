@@ -13,7 +13,7 @@ class Game:
     for element in range(10):
       if (self.isStrike(frameIndex)):
         score += 10 + self.strikeBonus(frameIndex)
-        ++frameIndex
+        frameIndex += 1
       elif (self.isSpare(frameIndex)):
         score += 10 + self.spareBonus(frameIndex)
         frameIndex += 2

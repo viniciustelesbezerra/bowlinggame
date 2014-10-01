@@ -4,8 +4,7 @@ class Game
   end
 
   def roll(pins)
-    @rolls[@currentRoll+=1] = pins
-    @rolls.delete nil
+    @rolls.push pins
   end
 
   def score

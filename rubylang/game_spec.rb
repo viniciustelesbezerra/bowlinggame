@@ -1,5 +1,6 @@
 require "./spec_helper"
 require "./game"
+require "benchmark"
 
 describe Game do
   let!(:game) { Game.new }
@@ -14,9 +15,16 @@ describe Game do
     expect(game.score).to eq 20
   end
 
-  it "the perfect game" do
-    12.times { game.roll 10 }
-    expect(game.score).to eq 300
+  context "the perfect game" do 
+    it "score 300" do
+      12.times { game.roll 10 }
+      expect(game.score).to eq 300
+    end
+
+    it "stress" do
+      time = Benchmark.bm { |x| x.report { 12.times { game.roll 10 } } }
+      expect(time[0].real).to be < 0.000100
+    end
   end
 
   it "one bonus spare" do
