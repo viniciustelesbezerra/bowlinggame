@@ -1,5 +1,5 @@
 var startGame = (function() {
-  function startGame() {;
+  function startGame() {
     this.rolls = [], this.currentRolls = 0;
   };
 
