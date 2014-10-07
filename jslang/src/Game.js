@@ -1,6 +1,6 @@
 var startGame = (function() {
-  function startGame() {
-    this.rolls = [];
+  function startGame() {;
+    this.rolls = [], this.currentRolls = 0;
   };
 
   startGame.prototype.roll = function(pins) {
@@ -8,7 +8,18 @@ var startGame = (function() {
   };
 
   startGame.prototype.score = function() {
-    return this.rolls.reduce(function(a, b) { return a + b; });
+    var score = 0, frameIndex = 0;
+
+    for (var i = 0; i < 10; i++) {
+      score += this.sumOfBallsInFrame(frameIndex)
+      frameIndex += 2;
+    }
+
+    return score;
+  };
+
+  startGame.prototype.sumOfBallsInFrame = function(frameIndex) {
+    return this.rolls[frameIndex] + this.rolls[frameIndex+1]
   };
 
   return startGame; })();

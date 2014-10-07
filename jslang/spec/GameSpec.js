@@ -4,19 +4,16 @@ describe("Game", function() {
   beforeEach(function() { game = new startGame; });
 
   it("all ones", function() {
-    var i = 0;
-    while (i < 10) {
-      game.roll(1); i++;
-      console.log(i);
-    }
+    for (var i = 0; i < 20; i++)
+      game.roll(1);
 
-    console.log(game.score());
-    expect(game.score()).toEqual(10);
+    expect(game.score()).toEqual(20);
   });
 
   it("all zeros", function() {
-    game.roll(1);
-    console.log(game.score());
-    expect(game.score()).toEqual(1);
+    for (var i = 0; i < 20; i++)
+      game.roll(0); 
+
+    expect(game.score()).toEqual(0);
   });
 });
