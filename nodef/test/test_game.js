@@ -17,3 +17,5 @@ describe('Game', function(){
       assert.equal(20, game.score());
     })
 })
+
+// istanbul cover _mocha -- -R spec
